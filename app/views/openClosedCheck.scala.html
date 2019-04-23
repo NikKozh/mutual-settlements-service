@@ -1,0 +1,21 @@
+@import data.Check
+@(check: Check)(implicit request: MessagesRequestHeader, assetsFinder: AssetsFinder)
+
+@main("Закрытый чек", assetsFinder) {
+    <div class="text-center wrapper">
+        <h1>К сожалению, этот чек уже закрыт!</h1>
+        <div class="w-50 m-auto">
+            <p class="text-center">
+                Всем участникам, отметившим свои позиции в этом чеке, были отправлены уведомления на электронную почту.
+                За подробностями вы можете обратиться к создателю чека:
+          </p>
+        </div>
+        <div class="check-data">
+            <p>@{check.clients.head.email}</p>
+        </div>
+        <div class="check-data">
+            <p>@{check.clients.head.name}</p>
+        </div>
+        <a href="@routes.HomeController.index()" class="nice-link">Вернуться на главную</a>
+    </div>
+}

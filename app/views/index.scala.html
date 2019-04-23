@@ -1,0 +1,19 @@
+@(message: String)(implicit assetsFinder: AssetsFinder)
+
+@main("Сервис взаиморасчётов", assetsFinder) {
+    @if(message.nonEmpty) {
+        <p>Ошибка! @message</p>
+    }
+    <div class="wrapper text-center">
+        <h1>СЕРВИС ВЗАИМОРАСЧЁТОВ</h1>
+        <div class="welcome">
+            <h2>Добро пожаловать!</h2>
+            <h4 class="pb-3">Введите ID чека или создайте новый:</h4>
+            <form action="@routes.HomeController.openCheck()" method="get" class="pb-3">
+                <input type="text" name="id" id="checkInput"/>
+                <input type="submit" value="Найти чек"/>
+            </form>
+            <a href="@routes.HomeController.createCheck()" class="nice-link">Создать новый чек</a>
+        </div>
+    </div>
+}

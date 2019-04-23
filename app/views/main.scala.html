@@ -1,0 +1,19 @@
+@(title: String, assetsFinder: AssetsFinder)(content: Html)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@assetsFinder.path("stylesheets/bootstrap.css")">
+        <link rel="stylesheet" media="screen" href="@assetsFinder.path("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@assetsFinder.path("images/favicon.png")">
+        <script src="@assetsFinder.path("javascripts/bootstrap.js")" type="text/javascript"></script>
+        <script src="@assetsFinder.path("javascripts/hello.js")" type="text/javascript"></script>
+        <script src="@assetsFinder.path("javascripts/createCheck.js")" type="text/javascript"></script>
+    </head>
+    <body>
+        @content
+    </body>
+</html>

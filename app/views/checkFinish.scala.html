@@ -1,0 +1,14 @@
+@()(implicit request: MessagesRequestHeader, assetsFinder: AssetsFinder)
+
+@main("Разбор чека завершён", assetsFinder) {
+    <div class="text-center wrapper">
+        <h1 class="text-center">Спасибо!</h1>
+        <div class="w-50 m-auto">
+            <p class="text-center">
+                Больше позиций в чеке не осталось. Чек закрыт, в ближайшее время вам и остальным участникам поступит
+                письмо на электронную почту с реквизитами и суммой оплаты.
+            </p>
+        </div>
+        <a href="@routes.HomeController.index()" class="nice-link">Вернуться на главную</a>
+    </div>
+}

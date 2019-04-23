@@ -1,0 +1,81 @@
+.item-row dd input {
+    width: 100%;
+}
+
+dt label {
+    font-weight: 400;
+}
+
+#author-wrapper {
+    border-top: black 2px solid;
+    margin-top: 35px;
+    padding-top: 10px;
+}
+
+#author-wrapper input {
+    width: 100%;
+}
+
+.margin-top-30 {
+    margin-top: 30px;
+}
+
+.padding-top-24 {
+    padding-top: 17px;
+}
+
+.padding-top-12 {
+    padding-top: 12px;
+}
+
+#check {
+    width: 80%;
+    background: #e4faff;
+    border: black 2px solid;
+}
+
+.wrapper {
+    max-width: 1200px;
+    box-shadow: 0 5px 10px 1px #dbdbdb;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    background: white;
+}
+
+.welcome {
+    padding-top: 60px;
+}
+
+#checkInput {
+    width: 300px;
+}
+
+.nice-link {
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+.nice-link:hover {
+    text-decoration: none;
+}
+
+body {
+    font-family: "Exo 2.0";
+    background: #f6ffff;
+}
+
+body a:hover {
+    text-decoration: none;
+}
+
+.container {
+    padding: 20px;
+}
+
+.p-30 {
+    padding: 30px !important;
+}
+
+.check-data {
+    background: #fcfcfc;
+}

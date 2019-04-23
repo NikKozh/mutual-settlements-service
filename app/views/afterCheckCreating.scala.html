@@ -1,0 +1,19 @@
+@import data.Check
+@(check: Check)(implicit request: MessagesRequestHeader, assetsFinder: AssetsFinder)
+
+@main("Чек создан", assetsFinder) {
+    <div class="text-center wrapper">
+        <h2>Спасибо, чек создан!</h2>
+        <p>Уникальный идентификатор вашего чека: <strong>@{check.id}</strong></p>
+        <div class="w-50 m-auto">
+            <p class="text-center">
+                Пригласите друзей, чтобы они отметили позиции, которые заказывали. Как только все позиции будут отмечены,
+                чек закроется и всем участникам будут отправлены письма на электронную почту с указанными вами реквизитами
+                для оплаты.
+            </p>
+        </div>
+        <a href="@routes.HomeController.openCheck(check.id)" class="nice-link">Перейти к позициям чека</a>
+        <br>
+        <a href="@routes.HomeController.index()" class="nice-link">Вернуться на главную</a>
+    </div>
+}

@@ -1,0 +1,79 @@
+@(checkForm: Form[ItemForm.CheckData])(implicit request: MessagesRequestHeader, assetsFinder: AssetsFinder)
+@import helper._
+
+@main("Создание чека", assetsFinder) {
+    <div class="wrapper">
+        <h1 class="text-center">Создание нового чека</h1>
+        <br>
+        <div id="check" class="container">
+            <div class="row">
+                <div class="col-sm-5">
+                    <span>Наименование</span>
+                </div>
+                <div class="col-sm">
+                    <span>Количество (шт.)</span>
+                </div>
+                <div class="col-sm">
+                    <span>Стоимость за 1 шт.</span>
+                </div>
+                <div class="col-sm-1">
+                    <span>Общая стоимость</span>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            @helper.form(action = routes.HomeController.submit(), args = 'id -> "check-form"){
+                @CSRF.formField
+                @helper.repeat(checkForm("items"), min = checkForm("items").indexes.length + 1) { itemForm =>
+                    <div class="row item-row">
+                        <div class="col-sm-5">
+                            @helper.inputText(itemForm("name"), '_label -> "", '_class -> "name")
+                        </div>
+                        <div class="col-sm">
+                            @helper.inputText(itemForm("quantity"), '_label -> "", '_class -> "quantity")
+                        </div>
+                        <div class="col-sm">
+                            @helper.inputText(itemForm("rate"), '_label -> "", '_class -> "rate")
+                        </div>
+                        <div class="col-sm-1 padding-top-24">
+                            <span class="cost"></span>
+                        </div>
+                        <div class="col-sm-2 padding-top-24">
+                            <a href="#" class="deleteItem nice-link">Удалить</a>
+                        </div>
+                    </div>
+                    <div class="invisible" id="last-row"></div>
+                }
+                <div class="row">
+                    <div class="col-sm-5">
+                    </div>
+                    <div class="col-sm">
+                    </div>
+                    <div class="col-sm">
+                        <span><strong>Полная стоимость:</strong></span>
+                    </div>
+                    <div class="col-sm-1">
+                        <span id="total-cost"></span>
+                    </div>
+                    <div class="col-sm-2 padding-top-24">
+                    </div>
+                </div>
+                <p class="text-center"><a href="#" id="addItem" class="nice-link">Добавить</a></p>
+                <div id="author-wrapper">
+                    <div class="row">
+                        <div class="col-md-3">
+                            @helper.inputText(checkForm("clients[0].client-name"), '_label -> "Имя", '_class -> "client-name")
+                        </div>
+                        <div class="col-md-3">
+                            @helper.inputText(checkForm("clients[0].email"), '_label -> "E-mail", '_class -> "email")
+                        </div>
+                        <div class="col-lg">
+                            @helper.inputText(checkForm("payment-details"), '_label -> "Реквизиты для оплаты", '_class -> "payment-details")
+                        </div>
+                    </div>
+                </div>
+                <button>Создать чек</button>
+            }
+        </div>
+    </div>
+}

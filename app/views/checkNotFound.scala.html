@@ -1,0 +1,9 @@
+@import data.Check
+@(checkId: String)(implicit request: MessagesRequestHeader, assetsFinder: AssetsFinder)
+
+@main("Ошибка!", assetsFinder) {
+    <div class="text-center wrapper">
+        <p>Чек с идентификатором <strong>@checkId</strong> не найден! Возможно, злой админ его выпилил. :c</p>
+        <a href="@routes.HomeController.index()" class="nice-link">На главную страницу</a>
+    </div>
+}
